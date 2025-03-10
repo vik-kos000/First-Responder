@@ -19,11 +19,11 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': { view: 'pages/homepage' },
+  '/' : 'PageController.homepage',
 
-  '/listpage': { view: 'pages/listpage' },
+  '/listpage': 'PageController.listPage',
 
-  '/detailpage': { view: 'pages/detailpage' },
+  '/detailspage': 'PageController.detailsPage',
 
 
   /***************************************************************************

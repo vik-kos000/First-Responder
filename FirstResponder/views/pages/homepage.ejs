@@ -1,61 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Responder</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        margin: 20px;
-      }
-      .header {
-          background-color: #ccc;
-          padding: 10px;
-          font-size: 20px;
-          font-weight: bold;
-      }
-      .Emergency-Location{
-        border: 1px solid #000;
-        display: absolute;
-        padding: 10px;
-        font-size: 20px;
-        text-align: center;
-        margin-top: 20px;
-        margin-bottom: 10px;
-      }
-      .zipcode {
-        border: 1px solid #000;
-        display: inline-block;
-        padding: 10px;
-        font-size: 20px;
-        text-align: center;
-        margin-top: 100px;
-        margin-bottom: 10px;
-      }
-      .zipcode_textbox {
-        display: inline-block;
-      }
-      input[type=text] {
-        border: 1px solid #000;
-        display: inline-block;
-        padding: 10px;
-        font-size: 18px;
-        text-align: center;
-        margin-top: 10px;
-        margin-bottom: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="header">First Responder</div>
-    <div class="Emergency-Location">Emergency Location</div>
-    <div class="zipcode">Zip Code:</div>
+<div class="header">First Responder</div>
+<div class="Emergency-Location">Emergency Location</div>
+
+<div class="zipcode-container">
+    <label for="zip" class="zipcode-label">Zip Code:</label>
     <div class="zipcode_textbox">
-      <form> 
-        <input type="text" name="zip" id="zip" placeholder="Textbox">
-      </form>
+        <form>
+            <input type="text" name="zip" id="zip" placeholder="Enter ZIP Code">
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
     </div>
-  </body>
-</html>
+</div>

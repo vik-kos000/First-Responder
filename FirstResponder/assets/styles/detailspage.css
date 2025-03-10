@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+.header {
+    background-color: #ccc;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-button a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.detail-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.emergency-details {
+    border: 1px solid #000;
+    display: inline-block;
+    padding: 10px;
+    margin-top: 20px;
+    text-align: left;
+    width: 80%;
+    background-color: #f9f9f9;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.return-to-list a {
+    font-size: 16px;
+    color: #007bff;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: block;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+ul li strong {
+    font-weight: bold;
+}

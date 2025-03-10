@@ -1,60 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>First Responder</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                text-align: center;
-                margin: 20px;
-            }
-            .header {
-                background-color: #ccc;
-                padding: 10px;
-                font-size: 20px;
-                font-weight: bold;
-            }
-            .zip-input {
-                margin: 10px;
-            }
-            .button {
-                margin: 15px;
-                padding: 10px 20px;
-                font-size: 16px;
-                cursor: pointer;
-            }
-            .home-button {
-            text-align: left;
-            }
-            .detail-title {
-                border: 1px solid #000;
-                display: absolute;
-                padding: 10px;
-                font-size: 20px;
-                text-align: center;
-                margin-top: 10px;
-                margin-bottom: 10px;
-            }
-            .emergency-details {
-                border: 1px solid #000;
-                display: inline-block;
-                padding: 10px;
-                font-size: 18px;
-                text-align: left;
-                margin-top: 10px;
-            }
-            .return-to-list {
-            text-align: right;
-            }
-        </style>
-    </head>
-    <body>
+
         <!-- Header Navigation -->
         <div class="header">First Responder
         <!-- Return Home button -->
-          <div class="home-button">Home</div>
+        <div class="home-button">
+            <a href="/">Home</a>
+        </div>
         </div>
         <!-- Details title -->
         <div class="detail-title">Emergency Details</div>
@@ -62,12 +12,14 @@
         <!-- Return to Emergency List View -->
             <p class="return-to-list">X</p>
             <ul>
-                <li>Call Type</li>
-                <li>Location</li>
-                <li>Units Called</li>
-                <li>Date of Event</li>
-                <li>Time of Event</li>
+                <li><strong>Call Type:</strong></li>
+                <li><strong>Location:</strong></li>
+                <li><strong>Units Called:</strong></li>
+                <li><strong>Date of Event:</strong></li>
+                <li><strong>Time of Event:</strong></li>
             </ul>
         </div>
+        <div class="linklist">
+            <a href= "/listpage">List page</a>
+        </div>
     </body>
-</html>

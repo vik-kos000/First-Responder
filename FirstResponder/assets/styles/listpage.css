@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+.header {
+    background-color: #ccc;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.zip-input {
+    margin: 20px auto;
+    text-align: center; /* Center the input within the container */
+}
+
+#zip {
+    padding: 10px;
+    font-size: 16px;
+    width: 200px; /* Adjust width as needed */
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    margin-top: 10px;
+}
+
+.button:hover {
+    background-color: #0056b3; /* Change background on hover */
+}
+
+.emergency-list {
+    border: 1px solid #000;
+    display: inline-block;
+    padding: 10px;
+    text-align: left;
+    margin-top: 10px;
+    width: 80%; /* Adjust the width to control the size of the list */
+    margin-left: auto;
+    margin-right: auto; /* Center the list horizontally */
+    background-color: #f9f9f9;
+}
+
+.emergency-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.emergency-list li {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.emergency-list li:last-child {
+    border-bottom: none; /* Remove the last border */
+}
+
+.emergency-list h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
