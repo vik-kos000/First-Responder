@@ -1,69 +1,61 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 20px;
-}
-
-.header {
-    background-color: #ccc;
-    padding: 10px;
-    font-size: 20px;
-    font-weight: bold;
-}
-
- .home-button a {
-    text-decoration: none;
-    color: black;
-    font-size: 16px;
-}
-#zip {
-    padding: 10px;
-    font-size: 16px;
-    width: 200px; /* Adjust width as needed */
-    margin-top: 10px;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    margin-top: 10px;
-}
-
-.button:hover {
-    background-color: #0056b3; /* Change background on hover */
-}
-
-.emergency-list {
-    border: 1px solid #000;
-    display: inline-block;
-    padding: 10px;
-    text-align: left;
-    margin-top: 10px;
-    width: 80%; /* Adjust the width to control the size of the list */
-    margin-left: auto;
-    margin-right: auto; /* Center the list horizontally */
-    background-color: #f9f9f9;
-}
-
-.emergency-list ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.emergency-list li {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-}
-
-.emergency-list li:last-child {
-    border-bottom: none; /* Remove the last border */
-}
-
-.emergency-list h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #d3d3d3;
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .home-button {
+            text-decoration: none;
+            background-color: #ffffff;
+            color: black;
+            padding: 8px 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            margin-right: 10px;
+        }
+        .home-button:hover {
+            background-color: #b0b0b0;
+        }
+        .zip-title {
+            text-align: center;
+            font-size: 20px;
+            margin: 20px 0;
+        }
+        .emergency-list {
+            background: white;
+            padding: 15px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .emergency-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .emergency-list li {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        .emergency-list li:first-child {
+            font-weight: bold;
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .zip-title {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 10px;
+        }
