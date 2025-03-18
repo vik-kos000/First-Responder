@@ -1,52 +1,71 @@
- <div class="header">First Responder
+<div class="header">First Responder
     <div class="home-button">
         <a href="/">Home</a>
     </div>
-    </div>
-    <div class="zip-title">Emergency Calls for ZIP Code:</div>
-    <div class="emergency-list">
-        <form id="addForm">
-        </form>
+</div>
+<div class="zip-title">Emergency Calls for ZIP Code:</div>
+<div class="emergency-list">
+    <form id="addForm">
+        <label for="type">Emergency Type:</label>
+        <input type="text" id="type" required>
 
-        <ul id="EmergencyCallsList"></ul>
+        <label for="zip">ZIP Code:</label>
+        <input type="text" id="zip" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <ul id="EmergencyCallsList"></ul>
 
     <script>
-        const apiUrl = "http://localhost:3000/api/EmergencyCalls";
-        let editing = false;
-        let editId = null;
+        const apiUrl = "http://localhost:1337/api/emergencyCalls";
 
-        // Fetch and display EmergencyCalls
         async function fetchEmergencyCalls() {
             try {
                 const response = await fetch(apiUrl);
-                const EmergencyCalls = await response.json();
-                
-                document.getElementById("EmergencyCallsList").innerHTML = EmergencyCalls.map(s => 
-                    `<li id="EmergencyCalls-${s.id}"> 
-                        ${s.type}, ${s.zip}
+                const emergencyCalls = await response.json();
+
+                document.getElementById("EmergencyCallsList").innerHTML = emergencyCalls.map(call => 
+                    `<li id="EmergencyCall-${call.id}">
+                        <strong>Type:</strong> ${call.type}, 
+                        <strong>ZIP:</strong> ${call.zip}
                     </li>`
                 ).join('');
             } catch (error) {
                 console.error("Error fetching emergency calls:", error);
             }
-}
+        }
 
-
-        // Add or Update EmergencyCalls
         async function submitEmergencyCalls(event) {
             event.preventDefault();            
             const type = document.getElementById("type").value.trim();
             const zip = document.getElementById("zip").value.trim();
-            const units = document.getElementById("units").value.trim();
-            const date = document.getElementById("date").value.trim();
-            const time = document.getElementById("time").value.trim();
+
+            if (!type || !zip) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ type, zip })
+                });
+
+                if (response.ok) {
+                    fetchEmergencyCalls(); // Refresh list
+                } else {
+                    console.error("Failed to add emergency call.");
+                }
+            } catch (error) {
+                console.error("Error adding emergency call:", error);
+            }
 
             document.getElementById("addForm").reset();
-            fetchEmergencyCalls();
         }
-
 
         document.getElementById("addForm").addEventListener("submit", submitEmergencyCalls);
         fetchEmergencyCalls();
     </script>
-    </div>
+</div>

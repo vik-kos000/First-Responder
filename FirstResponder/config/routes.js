@@ -25,6 +25,9 @@ module.exports.routes = {
 
   '/detailspage': 'PageController.detailsPage',
 
+  "GET /api/emergencyCalls": "EmergencyCallsController.getEmergencyCalls",
+  "POST /api/emergencyCalls": "EmergencyCallsController.addEmergencyCall",
+
 
   /***************************************************************************
   *                                                                          *

@@ -1,3 +1,4 @@
+/*
 const express = require("express");
 const fs = require("fs");
 const bodyParser = require("body-parser");
@@ -65,3 +66,5 @@ app.put("/api/EmergencyCalls/:id", (req, res) => {
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
+
+*/
