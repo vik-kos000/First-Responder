@@ -1,62 +1,109 @@
 body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .header {
-            background-color: #d3d3d3;
-            color: black;
-            font-size: 24px;
-            font-weight: bold;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .home-button {
-            text-decoration: none;
-            background-color: #ffffff;
-            color: black;
-            padding: 8px 16px;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            font-weight: bold;
-            text-align: center;
-            margin-right: 10px;
-        }
-        .home-button:hover {
-            background-color: #b0b0b0;
-        }
-        .zip-title {
-            text-align: center;
-            font-size: 20px;
-            margin: 20px 0;
-        }
-        .emergency-list {
-            background: white;
-            padding: 15px;
-            margin: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);            
-        }
-        .emergency-call-list ul {
-            list-style-type: none;
-            width: 80%;
-            padding: 0;
-        }
-        .emergency-list li {
-            padding: 8px;
-            border-bottom: 1px solid #ddd;
-        }
-        .emergency-list li:first-child {
-            font-weight: bold;
-            background-color: #e0e0e0;
-            padding: 10px;
-            border-radius: 8px;
-        }
-        .zip-title {
-            text-align: center;
-            font-size: 20px;
-            margin-top: 10px;
-        }
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #ccc;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-button a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.home-button:hover {
+    background-color: #b0b0b0;
+}
+
+.zip-title {
+    font-size: 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.emergency-list {
+    background: white;
+    padding: 15px;
+    margin: 40px 0; /* Added margin to create more space between the list and the form */
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.emergency-call-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.emergency-list li {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.emergency-list li:first-child {
+    font-weight: bold;
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.detail-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.emergency-details {
+    border: 1px solid #000;
+    display: inline-block;
+    padding: 10px;
+    margin-top: 20px;
+    text-align: left;
+    width: 80%;
+    background-color: #f9f9f9;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.return-to-list a {
+    font-size: 25px;
+    color: #007bff;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: block;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+ul li strong {
+    font-weight: bold;
+}
+
+form {
+    margin-bottom: 30px; /* Added margin-bottom to create space below the form */
+}

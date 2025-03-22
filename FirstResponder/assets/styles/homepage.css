@@ -9,6 +9,21 @@ body {
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-button a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.detail-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
 }
 
 .Emergency-Location {
