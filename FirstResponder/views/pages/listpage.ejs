@@ -32,15 +32,8 @@
             try {
                 const response = await fetch(apiUrl);
                 const emergencyCalls = await response.json();
-<<<<<<< HEAD
                 // Filter calls by the saved ZIP code
                 const filteredCalls = emergencyCalls.filter(call => call.zip === zipCode);
-=======
-
-                // Filter calls by the saved ZIP code
-                const filteredCalls = emergencyCalls.filter(call => call.zip === zipCode);
-
->>>>>>> origin/master
                 // Update the DOM with filtered calls
                 document.getElementById("EmergencyCallsList").innerHTML = filteredCalls.map(call => 
                     `<li id="EmergencyCall-${call.id}">
@@ -91,11 +84,7 @@
         }
 
         document.getElementById("addForm").addEventListener("submit", submitEmergencyCalls);
-<<<<<<< HEAD
         document.getElementById("EmergencyCallsList").addEventListener("click",EmergencyCallClick);
-=======
-
->>>>>>> origin/master
         // On page load, fetch emergency calls using the saved ZIP code
         window.onload = function() {
             fetchEmergencyCalls();

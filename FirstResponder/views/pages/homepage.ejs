@@ -26,7 +26,6 @@
             alert("Please enter a ZIP code.");
             return;
         }
-<<<<<<< HEAD
         else if(!isNaN(Number(zipCode)) == false)
         {
             alert("Please use numbers.");
@@ -37,18 +36,10 @@
             alert("Please use a 5 digit or higher zip code.");
             return;
         }
-=======
-
->>>>>>> origin/master
         // Save the ZIP code to sessionStorage (can also use localStorage)
         sessionStorage.setItem("zipCode", zipCode);
 
         // Redirect to the list page
         window.location.href = '/listpage'; // Change this to the correct path if needed
     });
-<<<<<<< HEAD
 </script>
-=======
-</script>
-
->>>>>>> origin/master
