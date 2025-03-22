@@ -1,12 +1,45 @@
-<div class="header">First Responder</div>
+<div class="header">First Responder
+    <!-- Return Home button -->
+    <div class="home-button">
+        <a href="/"><img src="images/homeButton.png" alt="Home Button Icon" height="45px" width="45"></a>
+    </div>
+</div>
 <div class="Emergency-Location">Emergency Location</div>
 
 <div class="zipcode-container">
     <label for="zip" class="zipcode-label">Zip Code:</label>
     <div class="zipcode_textbox">
-        <form action="listpage.ejs">
+        <form id="zipForm">
             <input type="text" name="zip" id="zip" placeholder="Enter ZIP Code">
             <button type="submit" class="submit-button">Submit</button>
         </form>
     </div>
 </div>
+
+<script>
+    document.getElementById("zipForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the form from refreshing the page
+
+        const zipCode = document.getElementById("zip").value.trim();
+
+        if (!zipCode) {
+            alert("Please enter a ZIP code.");
+            return;
+        }
+        else if(!isNaN(Number(zipCode)) == false)
+        {
+            alert("Please use numbers.");
+            return;
+        }
+        else if(zipCode.length < 5)
+        {
+            alert("Please use a 5 digit or higher zip code.");
+            return;
+        }
+        // Save the ZIP code to sessionStorage (can also use localStorage)
+        sessionStorage.setItem("zipCode", zipCode);
+
+        // Redirect to the list page
+        window.location.href = '/listpage'; // Change this to the correct path if needed
+    });
+</script>

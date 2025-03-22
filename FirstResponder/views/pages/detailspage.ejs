@@ -1,24 +1,51 @@
+<!-- Header Navigation -->
+<div class="header">First Responder
+    <!-- Return Home button -->
+    <div class="home-button">
+        <a href="/"><img src="images/homeButton.png" alt="Home Button Icon" height="45px" width="45"></a>
+    </div>
+</div>
+<!-- Details title -->
+<div class="detail-title">Emergency Details</div>
+<div class="emergency-details">
+    <!-- Return to Emergency List View -->
+    <ul>
+        <li id="type"><strong>Call Type:</strong></li>
+        <li id="zip"><strong>Location:</strong></li>
+        <li id="units"><strong>Units Called:</strong></li>
+        <li id="date"><strong>Date of Event:</strong></li>
+        <li id="time"><strong>Time of Event:</strong></li>
+    </ul>
+</div>
+<div class="return-to-list">
+    <a href= "/listpage">Emergency List</a>
+</div>
 
-        <!-- Header Navigation -->
-        <div class="header">First Responder
-            <!-- Return Home button -->
-            <div class="home-button">
-                <a href="/"><img src="images/homeButton.png" alt="Home Button Icon" height="45px" width="45"></a>
-            </div>
-        </div>
-        <!-- Details title -->
-        <div class="detail-title">Emergency Details</div>
-        <div class="emergency-details">
-            <!-- Return to Emergency List View -->
-            <ul>
-                <li><strong>Call Type:</strong></li>
-                <li><strong>Location:</strong></li>
-                <li><strong>Units Called:</strong></li>
-                <li><strong>Date of Event:</strong></li>
-                <li><strong>Time of Event:</strong></li>
-            </ul>
-        </div>
-        <div class="return-to-list">
-            <a href= "/listpage">Emergency List</a>
-        </div>
-    </body>
+<script>
+    
+    async function fetchEmergencyCallDetails() {
+        try{
+            const Emergency_Call = sessionStorage.getItem("SelectedEmergencyCallDetails");
+            var get_emergency_call_type = Emergency_Call.replace(/<[^>]*>|Type:|ZIP:|,|1|2|3|4|5|6|7|8|9|0/g, '').trim();
+            var get_emergency_call_zip = Emergency_Call.replace(/<[^>]*>|Type:|ZIP:|,|[a-zA-Z]/g, '').trim();
+
+            const apiUrl = "http://sinkingsystems.sytes.net:3001/api/EmergencyCalls";
+            const response = await fetch(apiUrl);
+            const emergencyCalls = await response.json();
+            const filteredCalls1 = emergencyCalls.filter(call => call.type === get_emergency_call_type);
+            const filteredCalls2 = filteredCalls1.filter(call => call.zip === get_emergency_call_zip);
+            document.getElementById("type").innerHTML=document.getElementById("type").innerHTML+" "+filteredCalls2[0].type;
+            document.getElementById("zip").innerHTML=document.getElementById("zip").innerHTML+" "+filteredCalls2[0].zip;
+            document.getElementById("units").innerHTML=document.getElementById("units").innerHTML+" "+filteredCalls2[0].units;
+            document.getElementById("date").innerHTML=document.getElementById("date").innerHTML+" "+filteredCalls2[0].date;
+            document.getElementById("time").innerHTML=document.getElementById("time").innerHTML+" "+filteredCalls2[0].time;
+        }
+        catch (error) {
+            console.error("Failed to fetch emergency call details:", error);
+        }
+    }
+    window.onload = function() {
+        fetchEmergencyCallDetails();
+    };
+    
+</script>

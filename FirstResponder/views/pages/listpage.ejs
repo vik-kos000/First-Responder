@@ -1,6 +1,7 @@
 <div class="header">First Responder
+    <!-- Return Home button -->
     <div class="home-button">
-        <a href="/">Home</a>
+        <a href="/"><img src="images/homeButton.png" alt="Home Button Icon" height="45px" width="45"></a>
     </div>
 </div>
 <div class="zip-title">Emergency Calls for ZIP Code:</div>
@@ -21,13 +22,22 @@
         const apiUrl = "http://sinkingsystems.sytes.net:3001/api/EmergencyCalls";
 
         async function fetchEmergencyCalls() {
+            const zipCode = sessionStorage.getItem("zipCode"); // Get the saved ZIP code from sessionStorage
+
+            if (!zipCode) { // Error handling for missing ZIP code
+                console.error("No ZIP code found in session storage.");
+                return;
+            }
+
             try {
                 const response = await fetch(apiUrl);
                 const emergencyCalls = await response.json();
-
-                document.getElementById("EmergencyCallsList").innerHTML = emergencyCalls.map(call => 
+                // Filter calls by the saved ZIP code
+                const filteredCalls = emergencyCalls.filter(call => call.zip === zipCode);
+                // Update the DOM with filtered calls
+                document.getElementById("EmergencyCallsList").innerHTML = filteredCalls.map(call => 
                     `<li id="EmergencyCall-${call.id}">
-                        <strong>Type:</strong> ${call.type}, 
+                        <strong>Type:</strong> ${call.type},
                         <strong>ZIP:</strong> ${call.zip}
                     </li>`
                 ).join('');
@@ -37,7 +47,7 @@
         }
 
         async function submitEmergencyCalls(event) {
-            event.preventDefault();            
+            event.preventDefault();
             const type = document.getElementById("type").value.trim();
             const zip = document.getElementById("zip").value.trim();
 
@@ -65,7 +75,19 @@
             document.getElementById("addForm").reset();
         }
 
+        async function EmergencyCallClick(event) {
+            if (call => event.target.id === `"EmergencyCall-${call.id}"`) {
+                event.preventDefault();
+                sessionStorage.setItem("SelectedEmergencyCallDetails",event.target.innerHTML);
+                window.location.href = '/detailspage';
+            }
+        }
+
         document.getElementById("addForm").addEventListener("submit", submitEmergencyCalls);
-        fetchEmergencyCalls();
+        document.getElementById("EmergencyCallsList").addEventListener("click",EmergencyCallClick);
+        // On page load, fetch emergency calls using the saved ZIP code
+        window.onload = function() {
+            fetchEmergencyCalls();
+        };
     </script>
 </div>
