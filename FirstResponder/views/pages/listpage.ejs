@@ -4,16 +4,17 @@
         <a href="/"><img src="images/homeButton.png" alt="Home Button Icon" height="45px" width="45"></a>
     </div>
 </div>
-<div class="zip-title">Emergency Calls for ZIP Code:</div>
+<div class="zip-title">Emergency Calls for ZIP Code: <span id="zipCodeDisplay"></span></div>
 <div class="emergency-list">
+
     <form id="addForm">
-        <label for="type">Emergency Type:</label>
+        <!-- <label for="type">Emergency Type:</label>
         <input type="text" id="type" required>
 
         <label for="zip">ZIP Code:</label>
         <input type="text" id="zip" required>
 
-        <button type="submit">Submit</button>
+        <button type="submit">Submit</button> -->
     </form>
 
     <ul id="EmergencyCallsList"></ul>
@@ -26,8 +27,11 @@
 
             if (!zipCode) { // Error handling for missing ZIP code
                 console.error("No ZIP code found in session storage.");
+                document.getElementById("zipCodeDisplay").textContent = "N/A";
                 return;
             }
+
+            document.getElementById("zipCodeDisplay").textContent = zipCode; 
 
             try {
                 const response = await fetch(apiUrl);
